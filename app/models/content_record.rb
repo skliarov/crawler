@@ -2,7 +2,7 @@ class ContentRecord < ApplicationRecord
   # Callbacks
   
   # Constants
-  CONTENT_KINDS = ['h1', 'h2', 'h3', 'link']
+  CONTENT_KINDS = ['h1', 'h2', 'h3', 'a']
   
   # Relationships
   belongs_to :web_page

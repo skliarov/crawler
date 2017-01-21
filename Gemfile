@@ -1,13 +1,20 @@
 source 'https://rubygems.org'
 
-# Specify exact version of Rails
+# Specify exact version of Rails, update it manually by running full test suite and performing manual QA
 gem 'rails', '5.0.1'
 
 # Use sqlite3 as the database for Active Record
+# For production projects you should use PosrgreSQL, MySQL or other RDMS instead in all environments
 gem 'sqlite3'
 
 # Use Puma as the app server
 gem 'puma'
+
+# Active Model Serializers (for JSON API)
+gem 'active_model_serializers'
+
+# HTML/XML parser
+gem 'nokogiri', '1.7.0.1'
 
 group :development, :test do
   # Use Rspec to test Rails app
