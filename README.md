@@ -1,4 +1,4 @@
-## README - Ruby on Rails web crawler demo
+## Ruby on Rails web crawler demo
 
 ### Ruby and Rails versions:
 
@@ -8,7 +8,7 @@
 ### Initial setup
 
 * Clone project `git clone git@github.com:skliarov/crawler.git`
-* To prevent security issues `config/database.yml` and `config/secrets.yml` are not included into git repository, so you have to create them.
+* To prevent security issues `config/database.yml` and `config/secrets.yml` are not included into git repository, so you have to create them manually.
 * Create `config/database.yml` file, it should look like this:
 ```
 development:
@@ -40,3 +40,9 @@ test:
 ```
 rspec -f doc --color
 ```
+
+In my opinion test coverage should be extended at least by parsing JSON responses and checking assigned values, but for demo purposes it's enough.
+
+Hope you'll like it and will give me some feedback - it's always a good thing to get insights from other developers.
+
+Thanks and have a nice day :)
