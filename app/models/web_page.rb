@@ -5,6 +5,7 @@ class WebPage < ApplicationRecord
   after_validation :crawl_web_page
   
   # Constants
+  WHITELISTED_URLS_FOR_TESTING = ['https://www.appdev.academy', 'https://www.appdev.academy/open-source','https://www.appdev.academy/articles/21-end-of-year-new-blog']
   
   # Relationships
   has_many :content_records, autosave: true, dependent: :destroy
@@ -16,12 +17,13 @@ class WebPage < ApplicationRecord
   
   private
     def crawl_web_page
-      if Rails.env.test?
-        logger.warn "Crawling of web pages is disabled for test environment"
+      unless self.errors.empty?
         return
       end
       
-      unless self.errors.empty?
+      # Don't crawl content of WebPage's url in test environment, unless it's whitelisted
+      if Rails.env == 'test' && !WebPage::WHITELISTED_URLS_FOR_TESTING.include?(self.url)
+        logger.warn "Crawling of web pages is disabled for test environment, except whitelisted URLs"
         return
       end
       
